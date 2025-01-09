@@ -76,16 +76,16 @@ export default function ContactForm2({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-stone-200 rounded-2xl w-full max-w-7xl max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl w-full max-w-7xl max-h-[90vh] overflow-y-auto"
             >
               <div className="relative">
                 <button 
                   onClick={onClose}
-                  className="absolute right-4 top-4 text-[#3d5a80] hover:text-[#ee6c4d] transition-colors"
+                  className="absolute right-4 top-4 text-black hover:text-gray-500 transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </button>
-                <section className="py-20 bg-stone-200">
+                <section className="py-20 bg-white">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
@@ -95,8 +95,8 @@ export default function ContactForm2({
                     >
                       {/* Contact Information */}
                       <div>
-                        <h2 className="text-4xl font-bold text-[#3d5a80] mb-6">Get in Touch</h2>
-                        <p className="text-[#3d5a80]/80 mb-12 text-lg">
+                        <h2 className="text-4xl font-bold text-black mb-6">Get in Touch</h2>
+                        <p className="text-black mb-12 text-lg">
                           Ready to revolutionize your manufacturing process? Contact us today for a consultation.
                         </p>
 
@@ -109,11 +109,11 @@ export default function ContactForm2({
                             transition={{ delay: 0.2 }}
                           >
                             <div className="bg-[#20B1FB] p-3 rounded-lg">
-                              <Mail className="w-6 h-6 text-[#e0fbfc]" />
+                              <Mail className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                              <h3 className="text-[#3d5a80] font-semibold mb-1">Email Us</h3>
-                              <a href="mailto:Sales@gimsindia.in" className="text-[#3d5a80] hover:text-[#ee6c4d] transition">
+                              <h3 className="text-black font-semibold mb-1">Email Us</h3>
+                              <a href="mailto:Sales@gimsindia.in" className="text-black hover:text-gray-500 transition">
                                 Sales@gimsindia.in
                               </a>
                             </div>
@@ -127,11 +127,11 @@ export default function ContactForm2({
                             transition={{ delay: 0.3 }}
                           >
                             <div className="bg-[#20B1FB] p-3 rounded-lg">
-                              <Phone className="w-6 h-6 text-[#e0fbfc]" />
+                              <Phone className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                              <h3 className="text-[#3d5a80] font-semibold mb-1">Call Us</h3>
-                              <a href="tel:+918925559983" className="text-[#3d5a80] hover:text-[#ee6c4d] transition">
+                              <h3 className="text-black font-semibold mb-1">Call Us</h3>
+                              <a href="tel:+918925559983" className="text-black hover:text-gray-500 transition">
                                 +91 8925559983
                               </a>
                             </div>
@@ -145,11 +145,11 @@ export default function ContactForm2({
                             transition={{ delay: 0.4 }}
                           >
                             <div className="bg-[#20B1FB] p-3 rounded-lg">
-                              <MapPin className="w-6 h-6 text-[#e0fbfc]" />
+                              <MapPin className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                              <h3 className="text-[#3d5a80] font-semibold mb-1">Visit Us</h3>
-                              <p className="text-[#3d5a80]">
+                              <h3 className="text-black font-semibold mb-1">Visit Us</h3>
+                              <p className="text-black">
                                 22-25, Sri Sai Nagar Main Rd,<br />
                                 Sri Sai Nagar, Pallikaranai,<br />
                                 Thoraipakkam, Chennai,<br />
@@ -165,13 +165,13 @@ export default function ContactForm2({
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-[#1890d5] bg-opacity-95 p-8 rounded-2xl border border-white/10 shadow-lg 
+                        className="bg-white bg-opacity-95 p-8 rounded-2xl border border-white/10 shadow-lg 
                           backdrop-blur-sm hover:border-white/20 transition-colors"
                       >
                         <form onSubmit={handleSubmit} className="space-y-6">
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                              <label htmlFor="name" className="block text-white mb-2 text-sm font-medium">
+                              <label htmlFor="name" className="block text-black mb-2 text-sm font-medium">
                                 Your Name
                               </label>
                               <input
@@ -182,13 +182,13 @@ export default function ContactForm2({
                                 onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                                  text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                                  text-black placeholder-black/50 focus:outline-none focus:border-white/40
                                   transition-colors"
                                 placeholder="John Doe"
                               />
                             </div>
                             <div>
-                              <label htmlFor="email" className="block text-white mb-2 text-sm font-medium">
+                              <label htmlFor="email" className="block text-black mb-2 text-sm font-medium">
                                 Email Address
                               </label>
                               <input
@@ -199,7 +199,7 @@ export default function ContactForm2({
                                 onChange={handleChange}
                                 required
                                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                                  text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                                  text-black placeholder-black/50 focus:outline-none focus:border-white/40
                                   transition-colors"
                                 placeholder="john@example.com"
                               />
@@ -208,7 +208,7 @@ export default function ContactForm2({
 
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                              <label htmlFor="phone" className="block text-white mb-2 text-sm font-medium">
+                              <label htmlFor="phone" className="block text-black mb-2 text-sm font-medium">
                                 Phone Number
                               </label>
                               <input
@@ -218,13 +218,13 @@ export default function ContactForm2({
                                 value={formData.phone}
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                                  text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                                  text-black placeholder-black/50 focus:outline-none focus:border-white/40
                                   transition-colors"
                                 placeholder="+91 123 456 7890"
                               />
                             </div>
                             <div>
-                              <label htmlFor="company" className="block text-white mb-2 text-sm font-medium">
+                              <label htmlFor="company" className="block text-black mb-2 text-sm font-medium">
                                 Company Name
                               </label>
                               <input
@@ -234,7 +234,7 @@ export default function ContactForm2({
                                 value={formData.company}
                                 onChange={handleChange}
                                 className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                                  text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                                  text-black placeholder-black/50 focus:outline-none focus:border-white/40
                                   transition-colors"
                                 placeholder="Your Company"
                               />
@@ -242,7 +242,7 @@ export default function ContactForm2({
                           </div>
 
                           <div>
-                            <label htmlFor="message" className="block text-white mb-2 text-sm font-medium">
+                            <label htmlFor="message" className="block text-black mb-2 text-sm font-medium">
                               Message
                             </label>
                             <textarea
@@ -253,7 +253,7 @@ export default function ContactForm2({
                               required
                               rows={4}
                               className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                                text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                                text-black placeholder-black/50 focus:outline-none focus:border-white/40
                                 transition-colors resize-none"
                               placeholder="How can we help you?"
                             />
@@ -262,7 +262,7 @@ export default function ContactForm2({
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-[#ee6c4d] hover:bg-[#ee6c4d]/90 text-[#0a4165] py-3 px-6 rounded-lg
+                            className="w-full bg-[#ee6c4d] hover:bg-[#ee6c4d]/90 text-black py-3 px-6 rounded-lg
                               transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center
                               disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                           >

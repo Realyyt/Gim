@@ -130,13 +130,13 @@ export default function ContactForm() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#1890d5] bg-opacity-95 p-8 rounded-2xl border border-white/10 shadow-lg 
+            className="bg-white p-8 rounded-2xl border border-white/10 shadow-lg 
               backdrop-blur-sm hover:border-white/20 transition-colors"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-white mb-2 text-sm font-medium">
+                  <label htmlFor="name" className="block text-[#293241] mb-2 text-sm font-medium">
                     Your Name
                   </label>
                   <input
@@ -146,14 +146,14 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                      text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                    className="w-full px-4 py-3 rounded-lg bg-[#293241]/10 border border-[#293241]/20 
+                      text-[#293241] placeholder-[#293241]/50 focus:outline-none focus:border-[#293241]/40
                       transition-colors"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-white mb-2 text-sm font-medium">
+                  <label htmlFor="email" className="block text-[#293241] mb-2 text-sm font-medium">
                     Email Address
                   </label>
                   <input
@@ -163,8 +163,8 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                      text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                    className="w-full px-4 py-3 rounded-lg bg-[#293241]/10 border border-[#293241]/20 
+                      text-[#293241] placeholder-[#293241]/50 focus:outline-none focus:border-[#293241]/40
                       transition-colors"
                     placeholder="john@example.com"
                   />
@@ -173,7 +173,7 @@ export default function ContactForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-white mb-2 text-sm font-medium">
+                  <label htmlFor="phone" className="block text-[#293241] mb-2 text-sm font-medium">
                     Phone Number
                   </label>
                   <input
@@ -182,14 +182,14 @@ export default function ContactForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                      text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                    className="w-full px-4 py-3 rounded-lg bg-[#293241]/10 border border-[#293241]/20 
+                      text-[#293241] placeholder-[#293241]/50 focus:outline-none focus:border-[#293241]/40
                       transition-colors"
                     placeholder="+91 123 456 7890"
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-white mb-2 text-sm font-medium">
+                  <label htmlFor="company" className="block text-[#293241] mb-2 text-sm font-medium">
                     Company Name
                   </label>
                   <input
@@ -198,8 +198,8 @@ export default function ContactForm() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                      text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                    className="w-full px-4 py-3 rounded-lg bg-[#293241]/10 border border-[#293241]/20 
+                      text-[#293241] placeholder-[#293241]/50 focus:outline-none focus:border-[#293241]/40
                       transition-colors"
                     placeholder="Your Company"
                   />
@@ -207,7 +207,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-white mb-2 text-sm font-medium">
+                <label htmlFor="message" className="block text-[#293241] mb-2 text-sm font-medium">
                   Message
                 </label>
                 <textarea
@@ -217,8 +217,8 @@ export default function ContactForm() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 
-                    text-white placeholder-white/50 focus:outline-none focus:border-white/40
+                  className="w-full px-4 py-3 rounded-lg bg-[#293241]/10 border border-[#293241]/20 
+                    text-[#293241] placeholder-[#293241]/50 focus:outline-none focus:border-[#293241]/40
                     transition-colors resize-none"
                   placeholder="How can we help you?"
                 />

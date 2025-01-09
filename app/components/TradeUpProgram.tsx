@@ -90,7 +90,7 @@ export default function TradeUpProgram() {
         </div>
       
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xl sm:text-3xl font-bold mb-8 mt-8 sm:mt-0 px-4 sm:px-0">
-          {['Revolutionize Your Workshop', 'Upgrade the Way You Cut', 'cut anything, Including your cost!'].map((text, index) => (
+          {['Revolutionize Your Workshop', 'Upgrade the Way You Cut', 'Cut anything, Including your cost!'].map((text, index) => (
             <motion.h2 
               key={index}
               initial={{ opacity: 0, y: 20 }}

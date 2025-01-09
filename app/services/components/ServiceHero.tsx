@@ -1,6 +1,6 @@
 'use client'
-
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ServiceHeroProps {
   title: string;
@@ -44,9 +44,9 @@ export default function ServiceHero({ title, subtitle, backgroundImage }: Servic
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <button className="bg-[#ee6c4d] text-white px-8 py-3 rounded-lg hover:bg-[#ee6c4d]/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200">
-              Contact Us
-            </button>
+            <Link href="/contact" className="bg-[#ee6c4d] text-white px-8 py-3 rounded-lg hover:bg-[#ee6c4d]/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200">
+                    Contact Us
+            </Link>
           </motion.div>
         </motion.div>
       </div>

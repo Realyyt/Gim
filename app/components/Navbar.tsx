@@ -49,14 +49,7 @@ export default function Navbar() {
     }
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-    setActiveDropdown(null);
-  };
+
 
   return (
     <nav className="fixed w-full bg-stone-200 backdrop-blur-[2px] z-50 top-0 left-0">
@@ -110,6 +103,15 @@ export default function Navbar() {
                 Calculator
               </button>
 
+              <button 
+                onClick={() => window.location.href = '/services'} 
+                className="w-full lg:w-auto px-3 py-2 text-sm font-bold text-[#0a4165] 
+                  hover:bg-[#0a4165]/10 rounded-md transition text-left lg:text-center shadow-sm"
+                style={{ textShadow: '1px 1px 1px rgba(255,255,255,0.5)' }}
+              >
+                Services
+              </button>
+
               {Object.keys(navItems).map((item) => (
                 <div 
                   key={item}
@@ -129,41 +131,34 @@ export default function Navbar() {
                   
                   {activeDropdown === item && (
                     <div 
-                      className={`${isMobile ? 'relative' : 'absolute'} left-0 lg:left-1/2 transform lg:-translate-x-1/2 
-                        w-full lg:w-screen lg:max-w-7xl bg-stone-200 backdrop-blur-[2px] shadow-lg rounded-b-lg mt-2`}
+                      className="fixed left-0 right-0 w-full bg-stone-200 shadow-lg z-50"
                       onMouseEnter={() => handleMouseEnter(item)}
                       onMouseLeave={handleMouseLeave}
                     >
-                      <div className="px-4 lg:px-8 py-4 lg:py-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8">
+                      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                           {navItems[item as keyof typeof navItems].map((subItem: NavItem, index) => (
                             <Link 
                               key={index}
-                              href={item === 'Materials' ? '/materials-specs' : (subItem.link || '#')}
-                              className="group flex lg:flex-col items-center lg:text-center rounded-lg p-2"
+                              href={subItem.link || '#'}
+                              className="flex flex-col items-center text-center p-4 rounded-lg hover:bg-white/50 transition-colors"
                               onClick={() => {
                                 setIsOpen(false);
                                 setActiveDropdown(null);
                               }}
                             >
-                              <div className="relative w-20 h-20 lg:w-full lg:h-40 mb-0 lg:mb-3 overflow-hidden rounded-lg flex-shrink-0">
-                                {'image' in subItem ? (
-                                  <Image
-                                    src={subItem.image!}
-                                    alt={subItem.title}
-                                    fill
-                                    className="object-contain p-4 group-hover:scale-105 transition duration-300"
-                                  />
-                                ) : (
-                                  subItem.icon && <subItem.icon className="w-full h-full p-4" />
-                                )}
+                              <div className="relative w-full h-48 mb-4">
+                                <Image
+                                  src={subItem.image || ''}
+                                  alt={subItem.title}
+                                  fill
+                                  className="object-contain"
+                                />
                               </div>
-                              <div className="ml-4 lg:ml-0">
-                                <h3 className="text-[#0a4165] font-bold mb-1">{subItem.title}</h3>
-                                {'description' in subItem && (
-                                  <p className="text-sm text-[#0a4165] font-semibold">{subItem.description}</p>
-                                )}
-                              </div>
+                              <h3 className="text-[#0a4165] font-bold text-lg mb-2">{subItem.title}</h3>
+                              {subItem.description && (
+                                <p className="text-sm text-[#0a4165]/80">{subItem.description}</p>
+                              )}
                             </Link>
                           ))}
                         </div>
@@ -174,7 +169,7 @@ export default function Navbar() {
               ))}
               
               <button 
-                onClick={() => scrollToSection('contact')} 
+                onClick={() => window.location.href = '/contact'} 
                 className="w-full lg:w-auto px-3 py-2 text-sm font-bold text-[#0a4165] 
                   hover:bg-[#0a4165]/10 rounded-md transition text-left lg:text-center shadow-sm"
                 style={{ textShadow: '1px 1px 1px rgba(255,255,255,0.5)' }}

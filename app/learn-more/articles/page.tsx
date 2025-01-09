@@ -5,19 +5,13 @@ import Link from 'next/link';
 
 const articles = [
   {
-    title: "The Future of Waterjet Cutting Technology",
-    excerpt: "Explore how suspension waterjet technology is revolutionizing the manufacturing industry...",
-    date: "2024-03-15",
-    image: "/articles/waterjet-future.jpg",
-    slug: "future-of-waterjet-cutting"
-  },
-  {
-    title: "Sustainability in Manufacturing",
-    excerpt: "Learn how GIMS's waterjet systems contribute to sustainable manufacturing practices...",
-    date: "2024-03-10",
-    image: "/articles/sustainability.jpg",
-    slug: "sustainability-in-manufacturing"
-  },
+    title: "India's First Abrasive Waterjet Unveiled by IIT-M",
+    excerpt: "An IIT Madras backed start-up has designed India's first abrasive waterjet machine that can cut combustible materials without generating heat. This game-changing technology, costing just one-third of market alternatives, is set to revolutionize semiconductor, aviation, and defence industries...",
+    date: "2024-08-11",
+    image: "/image/article1.jpg",
+    externalUrl: "https://www.newindianexpress.com/cities/chennai/2024/Aug/11/indias-first-abrasive-waterjet-unveiled-by-iit-m-director",
+    slug: "indias-first-abrasive-waterjet-unveiled-by-iit-m"
+  }
   // Add more articles as needed
 ];
 
@@ -33,21 +27,22 @@ export default function ArticlesPage() {
           Latest Articles
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex justify-center">
           {articles.map((article, index) => (
             <motion.article
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-2xl"
             >
-              <div className="relative h-48">
+              <div className="relative h-96">
                 <Image
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
+                  priority
                 />
               </div>
               
@@ -68,15 +63,29 @@ export default function ArticlesPage() {
                   {article.excerpt}
                 </p>
                 
-                <Link 
-                  href={`/learn-more/articles/${article.slug}`}
-                  className="inline-flex items-center text-[#ee6c4d] hover:text-[#ee6c4d]/80 font-semibold"
-                >
-                  Read More
-                  <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Link>
+                {article.externalUrl ? (
+                  <a 
+                    href={article.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[#ee6c4d] hover:text-[#ee6c4d]/80 font-semibold"
+                  >
+                    Read More
+                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </a>
+                ) : (
+                  <Link 
+                    href={`/learn-more/articles/${article.slug}`}
+                    className="inline-flex items-center text-[#ee6c4d] hover:text-[#ee6c4d]/80 font-semibold"
+                  >
+                    Read More
+                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </Link>
+                )}
               </div>
             </motion.article>
           ))}

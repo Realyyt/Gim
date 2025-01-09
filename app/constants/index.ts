@@ -215,51 +215,6 @@ export const industrialApplications: IndustrialApplication[] = [
   ];
 
   export const navItems = {
-   
-    'Services': [
-      { 
-        title: 'Services we offer', 
-        image: '/image/631226f2a946a754daa0abdaa8210786.jpg', 
-        link: '/services', 
-        description: ' comprehensive range of services tailored to meet your industrial needs.' 
-      },
-      { 
-        title: 'Core Competencies', 
-        image: '/image/ship.jpg', 
-        link: '/services/core-competencies',
-        description: 'Machine building, automation, and engineering expertise'
-      },
-      { 
-        title: 'Industry Solutions', 
-        image: '/image/284ccf16900287ebcc60d2c3beced007.jpg', 
-        link: '/services/applications',
-        description: 'Specialized solutions for different sectors'
-      },
-      { 
-        title: 'Industry Applications', 
-        image: '/image/0efcba41aeefc83e6f1ebc905352a2ba.jpg', 
-        link: '/services/IA',
-        description: 'Specialized solutions for different sectors'
-      },/*
-      { 
-        title: 'Waterjet Services', 
-        image: '/image/blast.jpeg', 
-        link: '/services/waterjet',
-        description: 'Advanced waterjet solutions for various industries'
-      },
-      { 
-        title: 'Wind Turbine Solutions', 
-        image: '/image/7c666d08646ce761ae07dc296662b00d.jpg', 
-        link: '/services/wind-turbine',
-        description: 'Cutting-edge wind turbine maintenance and decommissioning'
-      },
-      { 
-        title: 'Ship Decommissioning', 
-        image: '/image/ship.jpg', 
-        link: '/services/ship-decommissioning',
-        description: 'Eco-friendly ship dismantling with advance waterjet tech'
-      },*/
-    ],
     'Learn more': [
       { 
         title: 'About Us', 
@@ -285,8 +240,7 @@ export const industrialApplications: IndustrialApplication[] = [
         description: 'Read our latest articles',
         link: '/learn-more/articles'
       },
-    ],
-
+    ]
   };
   
   export const mediaItems: MediaItem[] = [

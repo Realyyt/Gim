@@ -49,6 +49,14 @@ export default function Footer() {
                   Products
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => window.location.href = '/privacy-policy'} 
+                  className="text-white/70 hover:text-white transition cursor-pointer"
+                >
+                  Privacy Policy
+                </button>
+              </li>
             </ul>
           </div>
           

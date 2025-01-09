@@ -1,8 +1,76 @@
 'use client'
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { FaLinkedin, FaUserCircle } from 'react-icons/fa';
 
 export default function AboutPage() {
+  const teamMembers = [
+    {
+      name: 'Guhan G',
+      role: 'Founder & Director',
+      image: '/team/Guhan - Founder & Director.png',
+      linkedin: 'https://www.linkedin.com/in/guhan-gunasekaran-25882657/'
+    },
+    {
+      name: 'Vairamuthu R',
+      role: 'Co-Founder & Director',
+      image: '/team/R. Viramuthu Co founder & Director.png',
+      linkedin: 'https://www.linkedin.com/in/vairamuthu-r-306922200/'
+    },
+    {
+      name: 'Syed Jamaldeen K',
+      role: 'Director',
+      image: '',
+      linkedin: '#'
+    },
+    {
+      name: 'Srikanth R',
+      role: 'CTO',
+      image: '',
+      linkedin: 'https://www.linkedin.com/in/srikanth-ramasubramanian-b3b0a7203/'
+    }
+  ];
+
+  console.log('Team Members:', teamMembers.map(member => ({
+    name: member.name,
+    hasImage: Boolean(member.image)
+  })));
+
+  const advisors = [
+    {
+      name: 'Prof. TM Muruganandam',
+      role: 'IIT MADRAS',
+      image: '/team/Muruganandam.jpg',
+      linkedin: 'https://www.linkedin.com/in/muruganandam-t-m-733253216/'
+    },
+    {
+      name: 'Prof. Satyanarayana Sheshadri',
+      role: 'IIT MADRAS',
+      image: '/team/Satya seshadri.png',
+      linkedin: 'https://www.linkedin.com/in/satyaseshadri/'
+    },
+    {
+      name: 'Prof. N Ramesh Babu',
+      role: 'IIT MADRAS',
+      image: '/team/Ramesh babu.jpg',
+      linkedin: 'https://www.linkedin.com/in/ramesh-babu-n-874b491b5/'
+    },
+    {
+      name: 'Prof. Sathyan',
+      role: 'IIT MADRAS',
+      image: '/team/sathyan subbaiya.png',
+      linkedin: 'https://www.linkedin.com/in/sathyansubbiah/'
+    }
+  ];
+
+  const galleryConfig = {
+    'Coimbatore Expo': 4,  // number of images in this category
+    'IIT Madras': 5,
+    'Inauguration': 10,
+    'Madurai Expo': 4,
+    'Infrastructure': 10  // number of images in this category
+  };
+
   return (
     <main className="min-h-screen bg-stone-200 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,15 +97,154 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="relative h-[400px] rounded-lg overflow-hidden"
+            className="relative h-[300px] rounded-lg overflow-hidden"
           >
-            <Image
-              src="/gims1.png"
-              alt="GIMS Facility"
-              fill
-              className="object-cover"
-            />
+            <div className="flex flex-row gap-4 h-full">
+              <div className="relative flex-1 h-[300px]">
+                <Image
+                  src="/gims1.png"
+                  alt="GIMS Facility"
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
+              <div className="relative flex-1 h-[300px]">
+                <Image
+                  src="/sj450.png"
+                  alt="GIMS Facility"
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Team Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center mb-16 text-[#293241]"
+        >
+          Our Team
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={member.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-lg p-6 shadow-lg text-center h-auto"
+            >
+              <div className="relative h-80 w-64 mx-auto mb-4 flex items-center justify-center">
+                {member.image && member.image !== '' ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-contain rounded-lg"
+                  />
+                ) : (
+                  <FaUserCircle className="w-48 h-48 text-gray-400" />
+                )}
+              </div>
+              <h3 className="text-xl font-semibold text-[#293241]">{member.name}</h3>
+              <p className="text-gray-600 mb-4">{member.role}</p>
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-blue-600 hover:text-blue-800"
+              >
+                <FaLinkedin size={24} />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Advisors Section */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center my-16 text-[#293241]"
+        >
+          Faculty Advisors/Mentors
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {advisors.map((advisor, index) => (
+            <motion.div
+              key={advisor.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-lg p-6 shadow-lg text-center h-auto"
+            >
+              <div className="relative h-80 w-64 mx-auto mb-4">
+                <Image
+                  src={advisor.image}
+                  alt={advisor.name}
+                  fill
+                  className="object-contain rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-[#293241]">{advisor.name}</h3>
+              <p className="text-gray-600 mb-4">{advisor.role}</p>
+              <a
+                href={advisor.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-blue-600 hover:text-blue-800"
+              >
+                <FaLinkedin size={24} />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Gallery Section */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center my-16 text-[#293241]"
+        >
+          Gallery
+        </motion.h2>
+
+        {/* Gallery Categories */}
+        <div className="space-y-12">
+          {Object.entries(galleryConfig).map(([category, itemCount], index) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-lg p-6 shadow-lg"
+            >
+              <h3 className="text-2xl font-semibold text-[#293241] mb-6">{category}</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[...Array(itemCount)].map((_, item) => (
+                  <motion.div
+                    key={item}
+                    whileHover={{ scale: 1.05 }}
+                    className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+                  >
+                    <Image
+                      src={`/gallery/${category.toLowerCase().replace(' ', '-')}/${item + 1}.jpg`}
+                      alt={`${category} ${item + 1}`}
+                      layout="fill" // Changed from className to layout
+                      objectFit="cover" // Added for better image fit
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </main>
