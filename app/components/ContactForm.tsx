@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function ContactForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,33 +15,43 @@ export default function ContactForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setStatus('loading');
     
-    // Create mailto URL with form data
-    const subject = `Contact Form Submission from ${formData.name}`;
-    const body = `
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Phone: ${formData.phone}
-      Company: ${formData.company}
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      Message:
-      ${formData.message}
-    `;
-
-    // Encode the mailto URL
-    const mailtoUrl = `mailto:Sales@gimsindia.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open default email client
-    window.location.href = mailtoUrl;
-    
-    setTimeout(() => {
+      if (!response.ok) throw new Error('Failed to send message');
+      
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: ''
+      });
+      
+      // Wait a brief moment before redirecting
+      setTimeout(() => {
+        router.push('/contact/thank-you');
+      }, 1000);
+    } catch (error) {
+      setStatus('error');
+      console.error('Error:', error);
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
-    }, 1000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,7 +62,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 " id="contact">
+    <section className="py-20 w-full bg-gray-50" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -240,6 +252,10 @@ export default function ContactForm() {
                   </>
                 )}
               </button>
+
+              {status === 'loading' && <p>Sending...</p>}
+              {status === 'success' && <p>Message sent successfully!</p>}
+              {status === 'error' && <p>Failed to send message. Please try again.</p>}
             </form>
           </motion.div>
         </motion.div>

@@ -4,8 +4,7 @@ import { Cog, Cpu, Lightbulb, Zap, Microscope, Bot } from 'lucide-react';
 import ServiceHero from './components/ServiceHero';
 import ServiceSection from './components/ServiceSection';
 import ServiceCard from './components/ServiceCard';
-
-
+import Image from 'next/image';
 
 export default function CoreCompetenciesPage() {
   return (
@@ -267,10 +266,12 @@ icon: Bot,
                 <source src="/product/k.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <img 
+              <Image 
                 src="/product/PID TUINING KIT.jpg" 
                 alt="Project 1" 
-                className="w-full h-64 object-cover"
+                width={64}
+                height={64}
+                className="object-cover"
               />
             </div>
             <div className="p-6">
@@ -297,10 +298,12 @@ icon: Bot,
                 <source src="/product/l.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <img 
+              <Image 
                 src="/product/Optoporator.jpg" 
                 alt="Project 2" 
-                className="w-full h-64 object-cover"
+                width={64}
+                height={64}
+                className="object-cover"
               />
             </div>
             <div className="p-6">
@@ -313,10 +316,12 @@ icon: Bot,
           </div>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <img 
+            <Image 
               src="/product/Kiosk.jpg" 
               alt="Project 3" 
-              className="w-full h-64 object-cover"
+              width={64}
+              height={64}
+              className="object-cover"
             />
             <div className="p-6">
               <h3 className="text-xl font-bold text-[#293241] mb-2"> Kiosk

@@ -29,7 +29,7 @@ export default function TradeUpProgram() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-xl sm:text-3xl font-bold">
             <span className="text-black">KATANA SJ150</span>
             <span className="text-gray-500 line-through">15 Lakhs</span>
-            <span className="text-[#ee6c4d]">9.75 Lakhs</span>
+            <span className="text-[#ee6c4d]">₹9.75 Lakhs</span>
           </div>
         </motion.div>
 
@@ -39,7 +39,7 @@ export default function TradeUpProgram() {
             <div className="space-y-4">
               <h3 className="text-xl sm:text-2xl font-bold text-black">Easy EMI Options</h3>
               <p className="text-base sm:text-lg text-gray-600">
-                Get Katana SJ150 for <span className="text-[#ee6c4d] font-bold">JUST 5 LAKH</span> down and 19,791/month for 24 months
+                Get Katana SJ150 for <span className="text-[#ee6c4d] font-bold">JUST ₹5 LAKH</span> down 
               </p>
             </div>
 

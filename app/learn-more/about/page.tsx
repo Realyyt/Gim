@@ -64,11 +64,10 @@ export default function AboutPage() {
   ];
 
   const galleryConfig = {
-    'Coimbatore Expo': 4,  // number of images in this category
+    'Coimbatore Expo': 4,
     'IIT Madras': 5,
-    'Inauguration': 10,
     'Madurai Expo': 4,
-    'Infrastructure': 10  // number of images in this category
+    'Infrastructure': 10
   };
 
   return (
@@ -99,23 +98,13 @@ export default function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             className="relative h-[300px] rounded-lg overflow-hidden"
           >
-            <div className="flex flex-row gap-4 h-full">
-              <div className="relative flex-1 h-[300px]">
-                <Image
-                  src="/gims1.png"
-                  alt="GIMS Facility"
-                  fill
-                  className="object-contain rounded-lg"
-                />
-              </div>
-              <div className="relative flex-1 h-[300px]">
-                <Image
-                  src="/sj450.png"
-                  alt="GIMS Facility"
-                  fill
-                  className="object-contain rounded-lg"
-                />
-              </div>
+            <div className="relative h-[300px]">
+              <Image
+                src="/gims1.png"
+                alt="GIMS Facility"
+                fill
+                className="object-contain rounded-lg"
+              />
             </div>
           </motion.div>
         </div>
@@ -228,24 +217,110 @@ export default function AboutPage() {
               <h3 className="text-2xl font-semibold text-[#293241] mb-6">{category}</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[...Array(itemCount)].map((_, item) => (
-                  <motion.div
-                    key={item}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
-                  >
-                    <Image
-                      src={`/gallery/${category.toLowerCase().replace(' ', '-')}/${item + 1}.jpg`}
-                      alt={`${category} ${item + 1}`}
-                      layout="fill" // Changed from className to layout
-                      objectFit="cover" // Added for better image fit
-                    />
-                  </motion.div>
-                ))}
+                {[...Array(itemCount)].map((_, item) => {
+                  const imagePath = category === 'Inauguration' 
+                    ? `/gallery/inauguration/${item + 1}.jpg`
+                    : `/gallery/${category.toLowerCase().replace(/\s+/g, '-')}/${item + 1}.jpg`;
+
+                  return (
+                    <motion.div
+                      key={item}
+                      whileHover={{ scale: 1.05 }}
+                      className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+                    >
+                      <Image
+                        src={imagePath}
+                        alt={`${category} ${item + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Inauguration Section */}
+        <section className="bg-white rounded-lg p-6 shadow-lg mt-12">
+          <h3 className="text-2xl font-semibold text-[#293241] mb-6">Inauguration</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im2.jpg"
+                alt="Inauguration Image 1"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im1.jpg"
+                alt="Inauguration Image 2"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im3.jpg"
+                alt="Inauguration Image 3"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im4.jpg"
+                alt="Inauguration Image 4"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im5.jpg"
+                alt="Inauguration Image 5"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image
+                src="/gallery/inauguration/im6.jpg"
+                alt="Inauguration Image 6"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+        </section>
       </div>
     </main>
   );

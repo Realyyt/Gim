@@ -46,16 +46,16 @@ export default function CuttingCalculator({ unit: globalUnit }: CuttingCalculato
         if (typeof result !== 'string') {
           const speedValue = parseFloat(result.cutRate);
           if (localUnit === 'metric') {
-            // Converting from mmpm to ipm
+            // Converting from i/min to mm/min
             newResults[model] = {
               ...result,
-              cutRate: `${(speedValue / 25.4).toFixed(1)} ipm`
+              cutRate: `${(speedValue * 25.4).toFixed(1)} mm/min`
             };
           } else {
-            // Converting from ipm to mmpm
+            // Converting from mm/min to i/min
             newResults[model] = {
               ...result,
-              cutRate: `${(speedValue * 25.4).toFixed(1)} mmpm`
+              cutRate: `${(speedValue / 25.4).toFixed(1)} i/min`
             };
           }
         }
@@ -111,26 +111,24 @@ export default function CuttingCalculator({ unit: globalUnit }: CuttingCalculato
       const cutTime = (lengthValue / adjustedSpeed) * 60;
       const totalTime = totalPierceTime + cutTime;
 
-      let abrasiveUsed = (totalTime / 60) * abrasiveRate;
-      if (localUnit === 'metric') {
-        abrasiveUsed *= 0.453592; // Convert lb to kg
-      }
-
+      // Calculate abrasive used in kg (abrasiveRate in kg/hour)
+      const abrasiveUsed = (totalTime / 3600) * abrasiveRate; // Convert time to hours for kg/hour rate
+      
       const jobCost = totalTime * costRate / 60; // Cost per minute
 
       results[modelName] = {
-        cutRate: `${adjustedSpeed.toFixed(1)}${localUnit === 'metric' ? ' mmpm' : ' ipm'}`,
+        cutRate: `${adjustedSpeed.toFixed(1)} ${localUnit === 'metric' ? 'mm/min' : 'i/min'}`,
         pierceTime: formatTime(adjustedPierceTime),
         jobTime: formatTime(totalTime),
-        abrasiveUsed: `${abrasiveUsed.toFixed(1)}${localUnit === 'metric' ? 'kg' : 'lb'}`,
+        abrasiveUsed: `${abrasiveUsed.toFixed(2)}kg`, // Display in kg with 2 decimal places
         jobCost: `₹${jobCost.toFixed(2)}`
       };
     };
 
     // Base parameters for each model
-    calculateForModel('sj700', 1000, 15, 0.75, 41.50);
-    calculateForModel('sj450', 750, 20, 0.5, 29.05);
-    calculateForModel('sj150', 500, 25, 0.3, 20.00);
+    calculateForModel('sj700', 1000, 15, 0.75, 41.50);  // 0.75 kg/hour
+    calculateForModel('sj450', 750, 20, 0.50, 29.05);   // 0.50 kg/hour
+    calculateForModel('sj150', 500, 25, 0.30, 20.00);   // 0.30 kg/hour
 
     setResults(results);
   };
@@ -155,7 +153,7 @@ export default function CuttingCalculator({ unit: globalUnit }: CuttingCalculato
           </div>
 
           <div className="flex items-center space-x-3 bg-white p-2 rounded-lg">
-            <span className={`text-sm font-bold ${localUnit === 'metric' ? 'text-blue-600' : 'text-gray-600'}`}>
+            <span className={`text-sm font-bold ${localUnit === 'imperial' ? 'text-gray-600' : 'text-blue-600'}`}>
               MM
             </span>
             <button
@@ -164,14 +162,14 @@ export default function CuttingCalculator({ unit: globalUnit }: CuttingCalculato
               className={`relative inline-flex h-7 w-12 flex-shrink-0 cursor-pointer rounded-full 
                 border-2 border-transparent transition-colors duration-200 ease-in-out 
                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-                ${localUnit === 'metric' ? 'bg-blue-600' : 'bg-gray-200'}`}
-              aria-pressed={localUnit === 'metric'}
+                ${localUnit === 'imperial' ? 'bg-blue-600' : 'bg-gray-200'}`}
+              aria-pressed={localUnit === 'imperial'}
             >
               <span className="sr-only">Toggle units</span>
               <span 
                 className={`pointer-events-none inline-block h-6 w-6 transform rounded-full 
                   bg-white shadow ring-0 transition duration-200 ease-in-out
-                  ${localUnit === 'metric' ? 'translate-x-5' : 'translate-x-0'}`}
+                  ${localUnit === 'imperial' ? 'translate-x-5' : 'translate-x-0'}`}
               />
             </button>
             <span className={`text-sm font-bold ${localUnit === 'imperial' ? 'text-blue-600' : 'text-gray-600'}`}>

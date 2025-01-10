@@ -34,7 +34,7 @@ export default function MaterialsTable({ category, materials, unit }: MaterialsT
                 {/* Sj700 section */}
                 <div className="flex flex-col items-center w-[250px]">
                   <Image 
-                    src="/Sj700.png" 
+                    src="/sj700.png" 
                     alt="Sj700" 
                     width={128}
                     height={128}
