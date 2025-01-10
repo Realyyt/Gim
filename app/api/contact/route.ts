@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_RECIPIENT, // Where you want to receive the emails
+      to: process.env.EMAIL_RECIPIENT,
       subject: `New Contact Form Submission from ${name}`,
       text: `
         Name: ${name}
@@ -34,11 +34,11 @@ export async function POST(request: Request) {
 
     await transporter.sendMail(mailOptions);
     
-    return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
+    return NextResponse.json({ message: "Message sent successfully" }, { status: 200 });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error sending message:', error);
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to send message" },
       { status: 500 }
     );
   }

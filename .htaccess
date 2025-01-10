@@ -1,5 +1,15 @@
 RewriteEngine On
+
+# Handle API routes first
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ http://127.0.0.1:3000/api/$1 [P,L]
+
+# Then handle other routes
 RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L] 
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+
+# Enable reverse proxy
+ProxyPass / http://127.0.0.1:3000/
+ProxyPassReverse / http://127.0.0.1:3000/ 
