@@ -195,7 +195,6 @@ export default function AboutPage() {
           ))}
         </div>
 
-        {/* Gallery Section */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -204,47 +203,7 @@ export default function AboutPage() {
           Gallery
         </motion.h2>
 
-        {/* Gallery Categories */}
-        <div className="space-y-12">
-          {Object.entries(galleryConfig).map(([category, itemCount], index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg p-6 shadow-lg"
-            >
-              <h3 className="text-2xl font-semibold text-[#293241] mb-6">{category}</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[...Array(itemCount)].map((_, item) => {
-                  const imagePath = category === 'Inauguration' 
-                    ? `/gallery/inauguration/${item + 1}.jpg`
-                    : `/gallery/${category.toLowerCase().replace(/\s+/g, '-')}/${item + 1}.jpg`;
-
-                  return (
-                    <motion.div
-                      key={item}
-                      whileHover={{ scale: 1.05 }}
-                      className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
-                    >
-                      <Image
-                        src={imagePath}
-                        alt={`${category} ${item + 1}`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover"
-                      />
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Inauguration Section */}
-        <section className="bg-white rounded-lg p-6 shadow-lg mt-12">
+        <section className="bg-white rounded-lg p-6 shadow-lg mt-12 mb-12 ">
           <h3 className="text-2xl font-semibold text-[#293241] mb-6">Inauguration</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <motion.div
@@ -321,6 +280,51 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Gallery Section */}
+        
+
+        {/* Gallery Categories */}
+        <div className="space-y-12">
+          {Object.entries(galleryConfig).map(([category, itemCount], index) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-lg p-6 shadow-lg"
+            >
+              <h3 className="text-2xl font-semibold text-[#293241] mb-6">{category}</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[...Array(itemCount)].map((_, item) => {
+                  const imagePath = category === 'Inauguration' 
+                    ? `/gallery/inauguration/${item + 1}.jpg`
+                    : `/gallery/${category.toLowerCase().replace(/\s+/g, '-')}/${item + 1}.jpg`;
+
+                  return (
+                    <motion.div
+                      key={item}
+                      whileHover={{ scale: 1.05 }}
+                      className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+                    >
+                      <Image
+                        src={imagePath}
+                        alt={`${category} ${item + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Inauguration Section */}
+       
       </div>
     </main>
   );
