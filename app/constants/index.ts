@@ -266,7 +266,7 @@ export const industrialApplications: IndustrialApplication[] = [
     },
     {
       type: 'video',
-      src: '/videos/PXL_20241115_113910820-2-2-2-2.mp4',
+      src: 'videos/PXL_20241115_113910820-2-2-2-2.mp4',
       title: 'Cutting operation on sj450',
     },
     {

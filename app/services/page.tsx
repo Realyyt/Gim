@@ -252,9 +252,9 @@ icon: Bot,
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="grid grid-cols-2 h-64">
+            <div className="h-64 flex items-center justify-center">
               <video 
-                className="w-full h-64 object-cover"
+                className="w-full h-full object-cover"
                 autoPlay 
                 muted 
                 loop
@@ -271,22 +271,21 @@ icon: Bot,
                 alt="Project 1" 
                 width={64}
                 height={64}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-[#293241] mb-2">PID tuning kit</h3>
               <div className="space-y-1 text-[#293241]/70">
-                <p><span className="font-semibold">Client:</span> NIT warangal</p>
-                <p></p>
+                <p><span className="font-semibold">Client:</span> NIT Warangal</p>
               </div>
             </div>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="grid grid-cols-2 h-64">
+            <div className="h-64 flex items-center justify-center">
               <video 
-                className="w-full h-64 object-cover"
+                className="w-full h-full object-cover"
                 autoPlay 
                 muted 
                 loop
@@ -303,31 +302,32 @@ icon: Bot,
                 alt="Project 2" 
                 width={64}
                 height={64}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-[#293241] mb-2">Optoporator V2     </h3>
+              <h3 className="text-xl font-bold text-[#293241] mb-2">Optoporator V2</h3>
               <div className="space-y-1 text-[#293241]/70">
-                <p><span className="font-semibold">Client:</span>  Dr.Santratuhin   </p>
+                <p><span className="font-semibold">Client:</span> Dr. Santratuhin</p>
                 <p><span className="font-semibold">Company:</span> Universal Fabrication IIT Madras</p>
               </div>
             </div>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <Image 
-              src="/product/Kiosk.jpg" 
-              alt="Project 3" 
-              width={64}
-              height={64}
-              className="object-cover"
-            />
+            <div className="h-64 flex items-center justify-center">
+              <Image 
+                src="/product/Kiosk.jpg" 
+                alt="Project 3" 
+                width={64}
+                height={64}
+                className="object-cover w-full h-full"
+              />
+            </div>
             <div className="p-6">
-              <h3 className="text-xl font-bold text-[#293241] mb-2"> Kiosk
-              </h3>
+              <h3 className="text-xl font-bold text-[#293241] mb-2">Kiosk</h3>
               <div className="space-y-1 text-[#293241]/70">
-                <p><span className="font-semibold">Client:</span> Mr.Anmol </p>
+                <p><span className="font-semibold">Client:</span> Mr. Anmol</p>
                 <p><span className="font-semibold">Company:</span> Bridge healthcare an IIT based startup</p>
               </div>
             </div>
