@@ -47,7 +47,7 @@ export default function TradeUpProgram() {
             >
               <h3 className="text-2xl font-bold text-black">GET 32% IMMEDIATE DISCOUNT!</h3>
               <p className="text-gray-600">
-                Trade-in your current KATANA, and we'll take 32% off the price of a KATANA Pro. You save upfront (not a rebate or refund).
+                Trade-in your current KATANA, and we&apos;ll take 32% off the price of a KATANA Pro. You save upfront (not a rebate or refund).
               </p>
               <Link 
                 href="/contact"
@@ -84,7 +84,7 @@ export default function TradeUpProgram() {
             >
               <h3 className="text-2xl font-bold text-black">NO DOWNTIME</h3>
               <p className="text-gray-600">
-                We'll ship your KATANA Pro first. Return your current KATANA after you get the new KATANA Pro.
+                We&apos;ll ship your KATANA Pro first. Return your current KATANA after you get the new KATANA Pro.
               </p>
             </motion.div>
 
