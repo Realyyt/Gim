@@ -34,23 +34,27 @@ export default function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProp
   }, [isOpen])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     setIsSubmitting(true);
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/demo-request', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Commenting out the API setup
+      // const response = await fetch('/api/demo-request', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
 
-      if (!response.ok) throw new Error('Failed to send demo request');
-      
+      // Simulating sending email to admin@gimsindia.in
+      const emailBody = `Model: ${formData.model}\nName: ${formData.name}\nOrganization: ${formData.organization}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nPreferred Date: ${formData.preferredDate}\nPreferred Time: ${formData.preferredTime}`;
+      const mailtoLink = `mailto:admin@gimsindia.in?subject=Demo Request Submission&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = mailtoLink;
+
       setStatus('success');
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = 'unset';
       
       // Clear form
       setFormData({

@@ -23,16 +23,20 @@ export default function ContactForm() {
     setStatus('loading');
     
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // Commenting out the API setup
+      // const response = await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
 
-      if (!response.ok) throw new Error('Failed to send message');
-      
+      // Simulating sending email to admin@gimsindia.in
+      const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nMessage: ${formData.message}`;
+      const mailtoLink = `mailto:admin@gimsindia.in?subject=Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+      window.location.href = mailtoLink;
+
       setStatus('success');
       setFormData({
         name: '',
