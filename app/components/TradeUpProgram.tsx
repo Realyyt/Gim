@@ -48,7 +48,7 @@ export default function TradeUpProgram() {
                 onClick={() => setIsFormOpen(true)}
                 className="w-full sm:w-auto inline-block px-6 sm:px-8 py-3 sm:py-4 bg-[#ee6c4d] text-white text-base sm:text-lg font-semibold rounded-md hover:bg-[#e85d3d] transition-colors"
               >
-                BOOK NOW
+                SCHEDULE A DEMO
               </button>
             </div>
           </div>
