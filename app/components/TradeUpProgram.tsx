@@ -17,19 +17,20 @@ export default function TradeUpProgram() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-16"
         >
-          <motion.div 
+          {/*<motion.div 
             className="text-2xl sm:text-4xl font-bold text-[#ee6c4d] mb-4"
             initial={{ opacity: 1, y: 0 }}
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
             35% discount for this NEW YEAR!
-          </motion.div>
+          </motion.div>*/}
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-xl sm:text-3xl font-bold">
-            <span className="text-black">KATANA SJ150</span>
-            <span className="text-gray-500 line-through">15 Lakhs</span>
-            <span className="text-[#ee6c4d]">₹9.75 Lakhs</span>
+            <span className="text-black">Upgrade Your </span>
+            {/*<span className="text-gray-500 line-through">15 Lakhs</span>*/}
+            <span className="text-[#ee6c4d]">CNC Router/Plasma </span>
+            <span className="text-black">with KATANA Waterjet series </span>
           </div>
         </motion.div>
 
@@ -37,10 +38,10 @@ export default function TradeUpProgram() {
           {/* Left Column */}
           <div className="space-y-8 sm:space-y-12">
             <div className="space-y-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-black">Easy EMI Options</h3>
-              <p className="text-base sm:text-lg text-gray-600">
+              <h3 className="text-xl sm:text-2xl font-bold text-black">Why Limit Yourself to One Material When You Can Cut Them All?</h3>
+              {/*<p className="text-base sm:text-lg text-gray-600">
                 Get Katana SJ150 for <span className="text-[#ee6c4d] font-bold">JUST ₹5 LAKH</span> down 
-              </p>
+              </p>*/}
             </div>
 
             <div className="space-y-4">
@@ -69,7 +70,7 @@ export default function TradeUpProgram() {
             }}
           >
             <Image
-              src="/gims1.png"
+              src="/sj451.png"
               alt="KATANA SJ150 Waterjet"
               fill
               className="object-contain"

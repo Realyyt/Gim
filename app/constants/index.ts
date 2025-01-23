@@ -229,12 +229,6 @@ export const industrialApplications: IndustrialApplication[] = [
         link: '/learn-more/faq'
       },
       { 
-        title: 'Reviews', 
-        image: '/8512fbae976e871e5353cdd64c165fa1.jpg', 
-        description: 'What our customers say',
-        link: '/learn-more/reviews'
-      },
-      { 
         title: 'Articles', 
         image: '/9fdabfb0a24c51234f146b33d48d003d.jpg', 
         description: 'Read our latest articles',
